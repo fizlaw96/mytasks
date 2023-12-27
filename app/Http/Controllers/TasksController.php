@@ -34,11 +34,18 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required'
+        ]);
 
         $input = $request->all();
-        Task::create($input);
-        return redirect()->back();
 
+        Task::create($input);
+
+        Session::flash('flash_message', 'Task successfully added!');
+
+        return redirect()->back();
     }
 
     /**
