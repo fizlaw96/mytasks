@@ -10,4 +10,9 @@ class PagesController extends Controller
     {
         return view('pages.home');
     }
+
+    public function index()
+    {
+        return view('tasks.index');
+    }
 }
