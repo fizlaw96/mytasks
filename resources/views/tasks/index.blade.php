@@ -6,6 +6,12 @@
 <p class="lead">All your tasks. <a href="{{ route('tasks.create') }}">Add a new one?</a></p>
 <hr>
 
+@if(Session::has('flash_message'))
+    <div class="alert alert-success">
+        {{ Session::get('flash_message') }}
+    </div>
+@endif
+
 @foreach($tasks as $task)
     <h3>{{ $task->title }}</h3>
     <p>{{ $task->description}}</p>
