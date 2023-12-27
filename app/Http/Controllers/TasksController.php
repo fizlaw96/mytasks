@@ -34,7 +34,11 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $input = $request->all();
+        Task::create($input);
+        return redirect()->back();
+
     }
 
     /**
